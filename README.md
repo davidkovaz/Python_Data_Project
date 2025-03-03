@@ -75,3 +75,68 @@ plt.show()
 ### Insights
 
 SQL is consistently the most demanded skill across this 12 month period, however, the demand appears to be declining. SQL was required for approximately 54% of data analyst jobs in January, and this declined to about 46% in December. Excel is the second most demanded skill, but its demand also appears to be declining slightly (approximately 42% in January to 38% in December). Tableau, Python, and SAS are less demanded skills in general, but the demand for these skills appears more consistent across this 12 month period compared to SQL and Excel.
+
+## 3. How well do data roles and associated skills pay?
+
+To determine pay for the most popular data roles, I created boxplots of the annual salaries for the top 6 most frequent data roles. Next, I further analyzed pay for skills specific to data analyst roles. I calculated and plotted the median annual salaries for the top 10 highest paying skills, as well as the top 10 most in-demand skills.
+
+View my notebook with detailed steps here:
+[4_Salary_Analysis.ipynb.ipynb](3_Project\4_Salary_Analysis.ipynb)
+
+### Boxplots of Salaries
+
+#### Visualization Code
+
+```python
+sns.boxplot(data = df_US_top6, x  ='salary_year_avg', y = 'job_title_short', order = job_order)
+plt.title('Boxplots of Job Salaries')
+plt.xlabel('Salary')
+plt.ylabel('Job Title')
+plt.xlim(0, 600000)
+ax = plt.gca()
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+plt.show()
+```
+#### Results
+
+![Boxplots of Salaries for Data Roles](3_Project\images\salary_boxplots.png)
+
+#### Insights
+
+Senior data scientist and engineer positions are the highest paying roles with annual salaries near $150k. The corresponding non-senior positions pay less, with median salaries of approximately $125k for non-senior data scientists and engineers. Data analyst positions (both senior and non-senior) pay the least of these data roles, with the median annual salary of non-senior data analysts being less than $100k.
+
+### Bar Charts of Pay by Skill for Data Analyst Roles
+
+#### Visualization Code
+
+```python
+fig, ax = plt.subplots(2, 1)
+
+sns.set_theme(style = 'ticks')
+
+sns.barplot(data = df_DA_top_pay, x = 'median', y = df_DA_top_pay.index, ax = ax[0], hue = 'median', palette = 'dark:b_r')
+ax[0].set_xlim(0, 200000)
+ax[0].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+ax[0].set_xlabel('')
+ax[0].set_ylabel('')
+ax[0].set_title('Highest Paid Job Skills for Data Analysts')
+ax[0].legend().remove()
+
+sns.barplot(data = df_DA_skills, x = 'median', y = df_DA_skills.index, ax = ax[1], hue = 'median', palette = 'light:b')
+ax[1].set_xlim(0, 200000)
+ax[1].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+ax[1].set_xlabel('Median Salary USD')
+ax[1].set_ylabel('')
+ax[1].set_title('Median Salary for Most Frequent Data Analyst Skills')
+ax[1].legend().remove()
+
+fig.tight_layout()
+plt.show()
+```
+#### Results
+
+![Bar Charts of Salaries for Data Analyst Skills](3_Project\images\salary_skills_bar.png)
+
+#### Insights
+
+The highest paying skills include things such as dplyr, bitbucket, and gitlab. However, it is worth noting that data analyst jobs requiring these skills are very rare (e.g., there were only 2 total job postings requiring dplyr). So the very highest paying skills are not very typical for data analyst positions. If we examine the pay for the most popular (frequent) skills for data analyst jobs, we see that Python, Tableau, R, and SQL pay the most, and Microsoft Office skills like PowerPoint, Excel, and Word pay less.
