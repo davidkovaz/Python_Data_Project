@@ -140,3 +140,51 @@ plt.show()
 #### Insights
 
 The highest paying skills include things such as dplyr, bitbucket, and gitlab. However, it is worth noting that data analyst jobs requiring these skills are very rare (e.g., there were only 2 total job postings requiring dplyr). So the very highest paying skills are not very typical for data analyst positions. If we examine the pay for the most popular (frequent) skills for data analyst jobs, we see that Python, Tableau, R, and SQL pay the most, and Microsoft Office skills like PowerPoint, Excel, and Word pay less.
+
+## 4. What are the most optimal skills for a data analyst to have based on pay and demand?
+
+To determine the most optimal skills for data analyst to have, I plotted the median annual salary for skills against their demand (percentage of data analyst jobs requiring the skill.
+
+View my notebook with detailed steps here:
+[5_Optimal_Skills.ipynb](3_Project\5_Optimal_Skills.ipynb)
+
+### Code for Visualizing the Data
+
+```python
+sns.set_theme(style = 'ticks')
+sns.scatterplot(
+    data = df_plot,
+    x = 'skill_percent',
+    y = 'median_salary',
+    hue = 'technology'
+)
+plt.title('Salary vs. Demand for Data Analyst Skills')
+plt.xlabel('Percent of Data Analyst Job Postings')
+plt.ylabel('Median Salary')
+sns.despine()
+
+texts = []
+for i, txt in enumerate(df_plot['skills']):
+    texts.append(plt.text(df_plot['skill_percent'].iloc[i],
+            df_plot['median_salary'].iloc[i],
+            txt))
+
+adjust_text(
+    texts,
+    arrowprops = dict(arrowstyle = '->', color = 'black', lw = 1)
+    )
+
+ax = plt.gca()
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, pos: f'${int(y / 1000)}k'))
+ax.xaxis.set_major_formatter(PercentFormatter(decimals = 0))
+
+plt.tight_layout()
+plt.show()
+```
+### Results
+
+![Scatterplot of Median Salary vs. Demand for Data Analyst Skills](3_Project\images\skill_pay_demand.png)
+
+### Insights
+
+Skills with both high pay and high demand should be the most optimal skills to have. These appear in the upper right corner of the plot. The plot shows that Python, Tableau, and SQL have high pay and high demand. Based on the technology type, programming languages tend to be the most optimal to have compared to other technology types. Database and cloud technologies (i.e., Oracle and SQL server) pay well but have relatively low demand. Microsoft Office tools like Word, PowerPoint, and Excel pay the lowest, and Word and Powerpoint specifically have low demand as well.
