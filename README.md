@@ -5,7 +5,7 @@
 To determine the most in-demand skills for the top 3 data roles, I identified the top 3 roles by US job posting counts. Then, for each skill, I calculated the percentage of job postings that require that skill (done for each of the top 3 roles).
 
 View my notebook with detailed steps here:
-[2_Skills_Count.ipynb](3_Project\2_Skills_Count.ipynb)
+[2_Skills_Count.ipynb](3_Project/2_Skills_Count.ipynb)
 
 ### Code for Visualizing the Data
 
@@ -35,7 +35,7 @@ fig.tight_layout()
 
 ### Results
 
-![Bar Chart of In-Demand Job Skills for Data Roles](3_Project\images\skill_demand.png)
+![Bar Chart of In-Demand Job Skills for Data Roles](3_Project/images/skill_demand.png)
 
 ### Insights
 
@@ -46,7 +46,7 @@ SQL is the most in-demand skills for data analysts and data engineers, while pyt
 To determine trends in high-demand skills for data analyst jobs, I calculated the percentage of data analyst jobs requiring each skill by month. Then, for the top 5 most demanded skills, I plotted the percentages by month to show the trend across the last year.
 
 View my notebook with detailed steps here:
-[3_Skills_Trend.ipynb](3_Project\3_Skills_Trend.ipynb)
+[3_Skills_Trend.ipynb](3_Project/3_Skills_Trend.ipynb)
 
 ### Code for Visualizing the Data
 
@@ -70,7 +70,7 @@ plt.show()
 ```
 ### Results
 
-![Line Chart of Skills Trend for Data Analyst Roles](3_Project\images\skill_trend.png)
+![Line Chart of Skills Trend for Data Analyst Roles](3_Project/images/skill_trend.png)
 
 ### Insights
 
@@ -81,7 +81,7 @@ SQL is consistently the most demanded skill across this 12 month period, however
 To determine pay for the most popular data roles, I created boxplots of the annual salaries for the top 6 most frequent data roles. Next, I further analyzed pay for skills specific to data analyst roles. I calculated and plotted the median annual salaries for the top 10 highest paying skills, as well as the top 10 most in-demand skills.
 
 View my notebook with detailed steps here:
-[4_Salary_Analysis.ipynb.ipynb](3_Project\4_Salary_Analysis.ipynb)
+[4_Salary_Analysis.ipynb.ipynb](3_Project/4_Salary_Analysis.ipynb)
 
 ### Boxplots of Salaries
 
@@ -99,7 +99,7 @@ plt.show()
 ```
 #### Results
 
-![Boxplots of Salaries for Data Roles](3_Project\images\salary_boxplots.png)
+![Boxplots of Salaries for Data Roles](3_Project/images/salary_boxplots.png)
 
 #### Insights
 
@@ -135,7 +135,7 @@ plt.show()
 ```
 #### Results
 
-![Bar Charts of Salaries for Data Analyst Skills](3_Project\images\salary_skills_bar.png)
+![Bar Charts of Salaries for Data Analyst Skills](3_Project/images/salary_skills_bar.png)
 
 #### Insights
 
@@ -146,7 +146,7 @@ The highest paying skills include things such as dplyr, bitbucket, and gitlab. H
 To determine the most optimal skills for data analyst to have, I plotted the median annual salary for skills against their demand (percentage of data analyst jobs requiring the skill.
 
 View my notebook with detailed steps here:
-[5_Optimal_Skills.ipynb](3_Project\5_Optimal_Skills.ipynb)
+[5_Optimal_Skills.ipynb](3_Project/5_Optimal_Skills.ipynb)
 
 ### Code for Visualizing the Data
 
@@ -183,7 +183,7 @@ plt.show()
 ```
 ### Results
 
-![Scatterplot of Median Salary vs. Demand for Data Analyst Skills](3_Project\images\skill_pay_demand.png)
+![Scatterplot of Median Salary vs. Demand for Data Analyst Skills](3_Project/images/skill_pay_demand.png)
 
 ### Insights
 
